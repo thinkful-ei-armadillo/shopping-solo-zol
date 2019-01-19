@@ -136,23 +136,24 @@ function updateItemName(currentName, newName){
 }
 
 function handleEditItemSubmit(){
-  $('.js-edit-button').click(event => {
+$('.js-shopping-list').on('click', '.js-edit-button', event => {
+    event.preventDefault;
     let editedItemName = $(event.currentTarget).siblings('input').val();
     let currentItemName = $(event.currentTarget).closest('li').find('.shopping-item').text();
     console.log(editedItemName);
     console.log(currentItemName, editedItemName);
-    
     updateItemName(currentItemName, editedItemName);
     renderShoppingList();
   });
   console.log('handleEditItemSubmit ran');
 }
 
+
 function handleEditItemClicked() {
   // this function toggles CSS class 'hidden' to open edit input 
+  // debugger;
   $('.js-shopping-list').on('click', '.js-shopping-item', event => {
     $(event.currentTarget).closest('li').find('.js-shopping-item-edit').toggleClass('hidden');
- 
     $(event.currentTarget).closest('li').find('.js-shopping-item').toggleClass('hidden');
   });
 }
@@ -169,8 +170,8 @@ function handleShoppingList() {
   handleDeleteItemClicked();
   handleToggleCheckedItems();
   handleSearchItemSubmit();
-  handleEditItemClicked();
   handleEditItemSubmit();
+  handleEditItemClicked();
 }
 
 // when the page loads, call `handleShoppingList`
