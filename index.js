@@ -149,7 +149,7 @@ function handleEditItemSubmit(){
 }
 
 function handleEditItemClicked() {
-  // this function toggles CSS class 'hidden' to open input for editing item 
+  // this function toggles CSS class 'hidden' to open edit input 
   $('.js-shopping-list').on('click', '.js-shopping-item', event => {
     $(event.currentTarget).closest('li').find('.js-shopping-item-edit').toggleClass('hidden');
  
